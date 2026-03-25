@@ -1,0 +1,31 @@
+{
+  "name": "soucedemoe2eframeworknuaav",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "homepage": "https://github.com/David101111101/SouceDemoE2EFrameworkNuaav#readme",
+  "bugs": {
+    "url": "https://github.com/David101111101/SouceDemoE2EFrameworkNuaav/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/David101111101/SouceDemoE2EFrameworkNuaav.git"
+  },
+  "license": "MIT",
+  "author": "David Abril",
+  "type": "module",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {},
+  "dependencies": {
+    "playwright": "^1.58.2",
+    "playwright-core": "^1.58.2",
+    "undici-types": "^7.18.2"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^25.5.0"
+  }
+}
