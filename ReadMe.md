@@ -124,7 +124,7 @@ The framework is intentionally designed to prioritise **stability, readability, 
 
 ## Prerequisites
 
-* Node.js ≥ 18
+* Node.js version: v23.3.0
 * npm ≥ 9
 
 Install dependencies:
