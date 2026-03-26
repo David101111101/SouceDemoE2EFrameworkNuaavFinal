@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository contains an end-to-end UI automation framework built with **Playwright and TypeScript** targeting the public SauceDemo application.
+This repository contains an end-to-end AI‑assisted QA/UI automation framework built with **Playwright and TypeScript** targeting the public SauceDemo application with CI/CD discipline.
 
 The objective of this suite is to demonstrate:
 
@@ -83,6 +83,10 @@ The suite is designed as a **fully parallel, stateless execution model**.
 
 This approach reduces execution time while maintaining deterministic test independence.
 
+Used data-test in all selector to avoid flakiness:
+
+await this.page.waitForSelector('[data-test="inventory-container"]');
+
 ### Page Object Model
 
 Page Objects are organised around **user capabilities** rather than DOM structure.
@@ -139,16 +143,51 @@ This reflects a deliberate workflow where AI output is critically assessed befor
 
 ---
 
-## Repository Structure
+## 2) Authentication Lifecycle
 
+```mermaid
+flowchart TD
+	A[Test run starts] --> B[Global setup launches browser]
+	B --> C[Login with standard user]
+	C --> D[Wait for inventory readiness]
+	D --> E[Persist storage state file]
+	E --> F[Config sets default storageState]
+
+	F --> G{Worker starts a test}
+	G --> H[Create isolated context from saved state]
+	H --> I[Test begins authenticated]
+	I --> G
+
+	G --> J{Negative auth scenario?}
+	J -- Yes --> K[Override with empty storage state]
+	K --> L[Open login page and submit credentials]
+	L --> M[Assert locked-out error message]
+
+	J -- No --> N[Continue authenticated test flow]
 ```
-tests/
-pages/
-fixtures/
-test-data/
-utils/
-global.setup.ts
-playwright.config.ts
+
+
+## 3) Checkout Happy Path End-to-End Journey
+
+```mermaid
+flowchart LR
+	A[Inventory page loaded] --> B[Add Sauce Labs Backpack]
+	B --> C[Open cart from header]
+	C --> D[Cart page starts checkout]
+	D --> E[Checkout info entered]
+	E --> F[Continue to overview]
+	F --> G[Finish order]
+	G --> H[Confirmation is visible]
+
+	subgraph Journey_Pages[Pages Traversed]
+		A
+		D
+		E
+		F
+		G
+		H
+	end
 ```
+
 
 This structure separates domain abstractions and supports maintainable long-term evolution of the suite.
