@@ -30,7 +30,6 @@ Do NOT:
 - Skip reasoning.
 - Assume hidden setup steps.
 
-Act as a reviewer preparing me to pass a Senior QA assessment.
 
 --- 
 Here the prompt for Copilot in Visual Studio Code to generate mermaid diagrams based on the project directory files:
@@ -42,20 +41,13 @@ Based on the current Playwright TypeScript automation framework in this reposito
 
 Diagrams required:
 
-1. High-level framework architecture diagram showing:
-   - Tests layer
-   - Custom fixtures layer
-   - Page Object layer
-   - Shared UI components
-   - Playwright core
-
-2. Authentication lifecycle diagram showing:
+1. Authentication lifecycle diagram showing:
    - Global setup login
    - Storage state persistence
    - Parallel worker reuse
    - Override flow for negative login tests
 
-3. End-to-end user journey diagram for the checkout happy path:
+2. End-to-end user journey diagram for the checkout happy path:
    - Inventory
    - Cart
    - Checkout info
