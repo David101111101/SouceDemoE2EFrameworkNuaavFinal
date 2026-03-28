@@ -6,7 +6,7 @@ This repository contains an AI assisted end-to-end QA/UI automation framework bu
 
 The framework was designed to demonstrate how a modern UI automation suite can be engineered with:
 
-- deterministic execution behaviour
+- deterministic execution behavior
 - scalable parallel architecture
 - maintainable abstraction layers
 - stable selector strategies
@@ -17,10 +17,17 @@ The objective is not only functional validation, but also to illustrate automati
 
 ---
 
-Prerequisites
+ Prerequisites
 
-- Node.js ≥ 18
-- npm
+- Node.js (v18+ recommended)
+- npm (comes with Node.js)
+
+Verify installation:
+
+node -v
+npm -v
+
+---
 
 Install dependencies and required browsers:
 
@@ -35,11 +42,7 @@ Execute the full test suite:
 
 npx playwright test
 
-Run a specific specification:
-
-npx playwright test tests/e2e/checkout-flow.spec.ts
-
-Optional repeat execution to observe stability behaviour:
+Optional repeat execution to observe stability behavior:
 
 npx playwright test --repeat-each=5
 
@@ -84,7 +87,7 @@ await this.page.waitForSelector('[data-test="inventory-container"]');
 
 Page Object Model Design
 
-Page Objects are organised around user capabilities rather than DOM structure, enabling clearer intent modelling and easier long-term evolution.
+Page Objects are organized around user capabilities rather than DOM structure, enabling clearer intent modelling and easier long-term evolution.
 
 Implemented abstractions include:
 
@@ -118,13 +121,13 @@ Because SauceDemo is a publicly hosted demo environment with variable performanc
 - explicit readiness waits were introduced
 - traces and screenshots are retained on failure
 
-These decisions prioritise signal reliability over aggressive execution timing assumptions.
+These decisions prioritize signal reliability over aggressive execution timing assumptions.
 
 ---
 
 Observability Insight
 
-Repeated executions indicated consistently slower and more variable loading behaviour in Firefox compared to Chromium.
+Repeated executions indicated consistently slower and more variable loading behavior in Firefox compared to Chromium.
 
 Although functional validation remains the primary objective, the framework demonstrates how automation suites can also surface performance-related quality signals.
 
