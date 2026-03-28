@@ -149,6 +149,7 @@ This reflects a deliberate engineering workflow where automation design decision
 
 Authentication Lifecycle
 
+```mermaid
 flowchart TD
 	A[Test run starts] --> B[Global setup launches browser]
 	B --> C[Login with standard user]
@@ -167,11 +168,11 @@ flowchart TD
 	L --> M[Assert locked-out error message]
 
 	J -- No --> N[Continue authenticated test flow]
-
+```
 ---
 
 Checkout Happy Path Journey
-
+```mermaid
 flowchart LR
 	A[Inventory page loaded] --> B[Add Sauce Labs Backpack]
 	B --> C[Open cart from header]
@@ -189,6 +190,7 @@ flowchart LR
 		G
 		H
 	end
+```
 
 ---
 
